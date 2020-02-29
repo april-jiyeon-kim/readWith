@@ -1,0 +1,14 @@
+extends layouts/main
+
+block content
+    .form-container
+        form(action=`/books${routes.upload}`, method="post", enctype="multipart/form-data")
+            label(for="cover") Book Cover
+            div.fileUpload
+                label(for="cover") Book Cover
+                input(type="file", id="cover", name="bookCover", required=true, accept="book/*")
+            input(type="text", placeholder="Title", name="title", required=true)
+            input(type="text", placeholder="Author", name="author", required=true)
+            textarea(name="description", placeholder="Description", required=true)
+            input(type="date" name="published_date", required=true)
+            input(type="submit", value="Upload Book")

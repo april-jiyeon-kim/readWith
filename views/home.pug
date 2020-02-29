@@ -1,0 +1,11 @@
+extends layouts/main
+include mixins/bookBlock
+block content
+    .home-books
+        each item in books
+            +bookBlock({
+                id:item.id,
+                title:item.title,
+                description:item.description,
+                cover:item.coverUrl
+            }) 

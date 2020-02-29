@@ -1,0 +1,17 @@
+extends layouts/main
+
+block content
+    .book__cover
+        image(src=`/${book.coverUrl}`)
+    .book__info
+        a(href=routes.editBook(book.id)) 
+            button Edit book
+        h5.book__title=book.title
+        h6.book__author=book.author
+        p.book_published_date=book.published_date
+        p.book__description=book.description 
+    .book__comments
+        if book.comments.length === 1
+            span.book__comment-number 1 comment
+        else
+            span.book__comment-number #{book.comments.length} comments

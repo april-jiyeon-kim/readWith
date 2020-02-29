@@ -1,0 +1,6 @@
+mixin bookBlock(book = {})
+    .bookBlock
+        a(href=routes.bookDetail(book.id))
+            img.bookBlock__cover(src=book.cover)
+            h4.bookBlock__title=book.title
+            h6.bookBlock__author=book.author
