@@ -8,22 +8,22 @@ import {
     postEditBook,
     deleteBook
   } from "../controllers/bookController";
-  import { uploadBook } from "../middlewares";
+  import { uploadBook, onlyPrivate } from "../middlewares";
 
 const bookRouter = express.Router();
 
 // Upload
-bookRouter.get(routes.upload, getUpload);
-bookRouter.post(routes.upload, uploadBook, postUpload);
+bookRouter.get(routes.upload, onlyPrivate, getUpload);
+bookRouter.post(routes.upload, onlyPrivate, uploadBook, postUpload);
 
 // Book Detail
 bookRouter.get(routes.bookDetail(), bookDetail);
 
 // Edit Book
-bookRouter.get(routes.editBook(), getEditBook);
-bookRouter.post(routes.editBook(), postEditBook);
+bookRouter.get(routes.editBook(), onlyPrivate, getEditBook);
+bookRouter.post(routes.editBook(), onlyPrivate, postEditBook);
 
 // Delete Book
-bookRouter.get(routes.deleteBook(), deleteBook);
+bookRouter.get(routes.deleteBook(), onlyPrivate, deleteBook);
 
 export default bookRouter;

@@ -83,7 +83,7 @@ export const postEditBook = async (req, res) => {
   } = req;
   console.log(id);
   try {
-    await Video.findOneAndUpdate({ _id: id }, { title, description });
+    await Book.findOneAndUpdate({ _id: id }, { title, description });
     res.redirect(routes.bookDetail(id));
   } catch (error) {
     res.redirect(routes.home);

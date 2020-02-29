@@ -11,6 +11,7 @@ const USERS = "/users";
 const USER_DETAIL = "/:id";
 const EDIT_PROFILE = "/edit-profile";
 const CHANGE_PASSWORD = "/change-password";
+const ME = "/me";
 
 // Books
 
@@ -19,6 +20,11 @@ const UPLOAD = "/upload";
 const BOOK_DETAIL = "/:id";
 const EDIT_BOOK = "/:id/edit";
 const DELETE_BOOK = "/:id/delete";
+
+// Github
+
+const GITHUB = "/auth/github";
+const GITHUB_CALLBACK = "/auth/github/callback";
 
 const routes = {
   home: HOME,
@@ -58,7 +64,10 @@ const routes = {
     } else {
       return DELETE_BOOK;
     }
-  }
+  },
+  gitHub: GITHUB,
+  githubCallback: GITHUB_CALLBACK,
+  me: ME
 };
 
 export default routes;
