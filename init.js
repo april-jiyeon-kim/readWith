@@ -5,7 +5,7 @@ import app from "./app";
 dotenv.config();
 
 import "./models/Book";
-import "./models/Comment";
+import "./models/Review";
 import "./models/User";
 
 const PORT = process.env.PORT || 4000;

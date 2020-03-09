@@ -4,7 +4,7 @@
   "description": "Clone goodreads with nodejs",
   "main": "index.js",
   "scripts": {
-    "dev:server": "nodemon --exec babel-node init.js --delay 2",
+    "dev:server": "nodemon --exec babel-node init.js --delay 2 --ignore '.scss' --ignore 'static' ",
     "dev:assets": "set WEBPACK_ENV=development&&webpack -w",
     "build:assets": "set WEBPACK_ENV=production&&webpack"
   },
@@ -37,6 +37,7 @@
     "postcss-loader": "^3.0.0",
     "pug": "^2.0.4",
     "sass-loader": "^8.0.2",
+    "tailwindcss": "^1.2.0",
     "webpack": "^4.41.6",
     "webpack-cli": "^3.3.11"
   },

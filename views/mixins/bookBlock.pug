@@ -1,6 +1,7 @@
 mixin bookBlock(book = {})
-    .bookBlock
+    .w-full.md_w-1of4.xl_w-1of5.p-6.flex.flex-col
         a(href=routes.bookDetail(book.id))
-            img.bookBlock__cover(src=book.cover)
-            h4.bookBlock__title=book.title
-            h6.bookBlock__author=book.author
+            img.hover_grow.hover_shadow-lg(src=`/${book.thumbnail}`)
+            h4=book.title
+            h6=book.author
+        

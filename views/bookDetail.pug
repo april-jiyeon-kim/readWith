@@ -1,17 +1,18 @@
 extends layouts/main
 
 block content
-    .book__cover
-        image(src=`/${book.coverUrl}`)
-    .book__info
-        a(href=routes.editBook(book.id)) 
-            button Edit book
-        h5.book__title=book.title
-        h6.book__author=book.author
-        p.book_published_date=book.published_date
-        p.book__description=book.description 
-    .book__comments
-        if book.comments.length === 1
-            span.book__comment-number 1 comment
-        else
-            span.book__comment-number #{book.comments.length} comments
+    div.md_flex.w-full.m-10
+        .m-4
+            image(src=`/${book.thumbnail}`)
+        .text-start.mx-4
+            h5.font-bold.text-lg.p-2=book.title
+            h6.p-2 지은이 #{book.author}
+            p.text-sm.p-2=book.published_date
+            p.p-2.border-1-4.border-yellow-500.my-8.pl-8.md_pl-12=book.description 
+            .p-2.text-gray-600.text-sm|Uploaded by 
+                a(href=routes.userDetail(book.updater.id))=book.updater.name
+                if loggedUser && book.updater.id === loggedUser._id
+                    a.m-2(href=routes.editBook(book.id))
+                        i.fas.fa-edit
+    .m-10
+        span.book__review-number 리뷰 #{book.reviews.length} 개

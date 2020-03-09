@@ -1,21 +1,16 @@
-header.header
-    .header__wrapper
-        .header__column
-            a(href=routes.home) readwith
-        .header__column
-            form(action=routes.search, method="get")
-                input(type="text", placeholder="Search by term...", name="term")
-        .header__column
-            ul
-                if !loggedUser
-                    li
-                        a(href=routes.join) Join
-                    li
-                        a(href=routes.login) Log In
-                else 
-                    li
-                        a(href=`/books${routes.upload}`) Upload
-                    li
-                        a(href=routes.me) Profile
-                    li
-                        a(href=routes.logout) Log Out
+header.flex.items-center.justify-between.flex-wrap.bg-yellow-500.p-6
+    .flex.items-center.flex-shrink-0.text-white.mr-6
+        a.font-semibold.text-xl.tracking-tight(href=routes.home) readwith
+    .flex.items-end.block.w-auto
+        form(action=routes.search, method="get")
+            input(type="text", placeholder="Search books...", name="term")
+        .text-sm.flex-grow
+            if !loggedUser
+                a.text-yellow-200.hover_text-white.ml-4.mr-4(href=routes.join) 회원가입
+                a.text-yellow-200.hover_text-white.mr-4(href=routes.login) 로그인
+            else 
+                a.block.mt-4.inline-block.mt-0.text-yellow-200.hover_text-white.ml-4.mr-4(href=`/books${routes.upload}`)
+                    i.fas.fa-plus
+                a.block.mt-4.inline-block.mt-0.text-yellow-200.hover_text-white.mr-4(href=routes.me) 내 정보
+                a.block.mt-4.inline-block.mt-0.text-yellow-200.hover_text-white.mr-4(href=routes.logout) 로그아웃
+

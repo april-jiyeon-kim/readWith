@@ -1,8 +1,16 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
 @import "config/_variables.scss";
 @import "config/reset.scss";
+@import "config/utils.scss";
 @import "main.scss";
 @import "partials/header.scss";
 @import "partials/bookBlock.scss";
 
 @import "pages/home.scss";
 @import "pages/bookDetail.scss";
+@import "pages/userProfile.scss";
+
+// FFF8C1 CDBC31 EBD200

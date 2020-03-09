@@ -1,5 +1,6 @@
 const path = require("path");
 const autoprefixer = require("autoprefixer");
+const tailwindcss = require("tailwindcss");
 const ExtractCSS = require("extract-text-webpack-plugin");
 
 const MODE = process.env.WEBPACK_ENV;
@@ -28,9 +29,10 @@ const config = {
           {
             loader: "postcss-loader",
             options: {
-              plugins() {
-                return [autoprefixer({ browsers: "cover 99.5%" })];
-              }
+              plugins: [
+                require('tailwindcss'),
+                require('autoprefixer'),
+              ],
             }
           },
           {

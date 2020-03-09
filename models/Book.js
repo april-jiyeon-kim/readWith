@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 
 const BookSchema = new mongoose.Schema({
-  coverUrl: {
+  thumbnail: {
     type: String,
-    required: "Cover URL is required"
+    required: "Cover thumbnail URL is required"
   },    
   title: {
         type: String,
@@ -14,10 +14,14 @@ const BookSchema = new mongoose.Schema({
   published_date: {
     type: Date
   },
-  comments: [
+  updater: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref:"User"
+  },
+  reviews: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Comment"
+      ref: "Review"
     }
   ] 
 });

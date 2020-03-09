@@ -1,5 +1,6 @@
 .header {
-    background-color: $red;
+    background-color: #FFDA3E; 
+    // background-color: #FFF8C1; 
     margin-bottom: 50px;
     .header__wrapper {
       padding: 5px 0px;
@@ -13,7 +14,7 @@
         &:first-child {
             display: flex;
             color: white;
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
         }
         &:nth-child(2) {

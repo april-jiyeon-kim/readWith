@@ -1,14 +1,24 @@
 extends layouts/main
 
 block content
-    .form-container
-        form(action=`/books${routes.upload}`, method="post", enctype="multipart/form-data")
-            label(for="cover") Book Cover
-            div.fileUpload
-                label(for="cover") Book Cover
-                input(type="file", id="cover", name="bookCover", required=true, accept="book/*")
-            input(type="text", placeholder="Title", name="title", required=true)
-            input(type="text", placeholder="Author", name="author", required=true)
-            textarea(name="description", placeholder="Description", required=true)
-            input(type="date" name="published_date", required=true)
-            input(type="submit", value="Upload Book")
+    form.max-w-sm.sm_max-w-md.md_max-w-lg.lg_max-w-xl.xl_max-w-2xl.m-8(action=`/books${routes.upload}`, method="post", enctype="multipart/form-data")
+        .flex.flex-wrap.-mx-3.mb-6
+            .w-full.px-3
+                label.block.uppercase.tracking-wide.text-gray-700.text-xs.font-bold.mb-2(for="thumbnail") Book Cover
+                input.block(type="file", id="thumbnail", name="thumbnail", required=true, accept="book/*")
+        .flex.flex-wrap.-mx-3.mb-6
+            .w-full.px-3
+                label.block.uppercase.tracking-wide.text-gray-700.text-xs.font-bold.mb-2(for="thumbnail") Title
+                input(type="text", placeholder="Title", name="title", required=true)
+        .flex.flex-wrap.-mx-3.mb-6
+            .w-full.wp50.px-3.mb-6.md_mb-0
+                label.block.uppercase.tracking-wide.text-gray-700.text-xs.font-bold.mb-2(for="author") Author
+                input(type="text", placeholder="Author", name="author", required=true)
+            .w-full.wp50.px-3.mb-6.md_mb-0   
+                label.block.uppercase.tracking-wide.text-gray-700.text-xs.font-bold.mb-2(for="published_date") Published Date 
+                input(type="date" name="published_date", required=true)
+        .flex.flex-wrap.-mx-3.mb-6
+            .w-full.px-3
+                label.block.uppercase.tracking-wide.text-gray-700.text-xs.font-bold.mb-2(for="description") Description
+                textarea.form-textarea.mt-1.block.w-full(rows="3" name="description", placeholder="Description", required=true)
+        button.block.bg-yellow-500.hover_bg-yellow-600.text-white.uppercase.text-lg.mx-auto.p-4.rounded(type="submit") 새 책 추가하기
